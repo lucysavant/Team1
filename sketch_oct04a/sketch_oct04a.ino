@@ -1,16 +1,18 @@
-const int sensorPin = A0;   // magnetic sensor connected to A0
-const int ledPin = 13;      // LED connected to digital pin 13
+// Code for weight sensor input and light sensor output on Arduino
+
+int weightSensorPin = A0;  // select the input pin for the weight sensor
+int lightSensorPin = A1;   // select the input pin for the light sensor
+int weightValue = 0;       // variable to store the weight sensor value
+int lightValue = 0;        // variable to store the light sensor value
 
 void setup() {
-  pinMode(ledPin, OUTPUT);   // set the LED pin as output
+  pinMode(weightSensorPin, INPUT);
+  pinMode(lightSensorPin, INPUT);
 }
 
 void loop() {
-  int sensorValue = analogRead(sensorPin);  // read the value from the sensor
+  weightValue = analogRead(weightSensorPin);   // read the value from the weight sensor
+  lightValue = analogRead(lightSensorPin);     // read the value from the light sensor
 
-  if (sensorValue > 500) {   // if the sensor value is above a certain threshold
-    digitalWrite(ledPin, HIGH);  // turn the LED on
-  } else {
-    digitalWrite(ledPin, LOW);   // turn the LED off
-  }
+  // use the sensor values for your project here
 }
